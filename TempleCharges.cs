@@ -29,7 +29,8 @@ public class TempleCharges : BaseSettingsPlugin<TempleChargesSettings>
     }
 
     public override void AreaChange(AreaInstance area) {
-        _templePanel = GameController.IngameState.IngameUi.TempleConsolePanel;
+        //_templePanel = GameController.IngameState.IngameUi.TempleConsolePanel; // temp fix - grab panel by index
+        _templePanel = GameController.IngameState.IngameUi.Children[58].AsObject<TempleConsolePanel>();
         _areaIsTemple = area.Area.Id.Equals("IncursionTemple");
     }
 
